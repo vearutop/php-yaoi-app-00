@@ -1,0 +1,25 @@
+<?php
+
+class Main_Controller {
+
+    public static function somePage() {
+        App::view()->setBody(View_Raw::create('Some content'));
+        App::view()->render();
+    }
+
+
+    public static function indexPage() {
+        App::view()->setBody(View_Raw::create('Oh, hi! The INTERNET is waiting for a new site.'));
+        App::view()->render();
+    }
+
+
+    public static function notFoundPage() {
+        header("HTTP/1.x 404 Not Found");
+        header("Status: 404 Not Found");
+
+        App::view()->setBody(View_Raw::create('Not found :('));
+        App::view()->render();
+    }
+
+} 

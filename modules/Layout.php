@@ -14,6 +14,10 @@ class Layout implements View_Renderer {
         '<link href="/css/main.css" media="all" rel="stylesheet" type="text/css" />'
     );
 
+    public function setBody(View_Renderer $body) {
+        $this->body = $body;
+        return $this;
+    }
 
     /**
      * Array of javascript urls

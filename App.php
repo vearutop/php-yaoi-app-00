@@ -7,7 +7,6 @@ require_once './php-yaoi/modules/Abstract/Abstract_App.php';
 class App extends Abstract_App {
 
     public function route($path = null, $host = null) {
-
         if (null === $path) {
             $path = $this->path;
         }
@@ -17,6 +16,14 @@ class App extends Abstract_App {
         }
 
         switch (true) {
+            case '/' === $path:
+                Main_Controller::indexPage();
+                break;
+
+            case 'some-page' === $path:
+                Main_Controller::indexPage();
+                break;
+
             default:
                 Main_Controller::notFoundPage();
                 break;
@@ -27,22 +34,11 @@ class App extends Abstract_App {
     private static $resources = array();
 
 
-    /**
-     * @param string $id
-     * @return Date_Source
-     */
-    static function time($id = 'default') {
-        $resource = &self::$resources['time_' . $id];
-        if (!isset($resource)) {
-            $resource = new Date_Source();
-        }
-        return $resource;
-    }
 
     static function view() {
         $resource = &self::$resources['view'];
         if (!isset($resource)) {
-            $resource = new View_Main();
+            $resource = new Layout();
         }
         return $resource;
     }
