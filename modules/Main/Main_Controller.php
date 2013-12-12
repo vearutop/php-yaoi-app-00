@@ -3,13 +3,15 @@
 class Main_Controller {
 
     public static function somePage() {
-        App::view()->setBody(View_Raw::create('Some content'));
+        App::view()->setBody(View_Raw::create('Some content. <a href="/">Back</a> to the roots.'));
         App::view()->render();
     }
 
 
     public static function indexPage() {
-        App::view()->setBody(View_Raw::create('Oh, hi! The INTERNET is waiting for a new site.'));
+        App::view()->setBody(
+            View_Raw::create('Oh, hi! The INTERNET is waiting for a new site. Some <a href="/some-page">page</a>')
+        );
         App::view()->render();
     }
 

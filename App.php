@@ -20,8 +20,8 @@ class App extends Abstract_App {
                 Main_Controller::indexPage();
                 break;
 
-            case '/some-page' === $path:
-                Main_Controller::indexPage();
+            case String_Utils::starts($path, '/some-page'):
+                Main_Controller::somePage();
                 break;
 
             default:
