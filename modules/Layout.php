@@ -6,6 +6,16 @@ class Layout implements View_Renderer {
     public $faviconType = 'image/x-icon';
     public $favicon = '/favicon.ico';
 
+    public function __toString()
+    {
+        ob_start();
+        $this->render();
+        $result = ob_get_contents();
+        ob_end_clean();
+        return $result;
+    }
+
+
     /**
      * Array of link and meta elements
      * @var array
