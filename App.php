@@ -39,7 +39,7 @@ class App extends Yaoi {
             /**
              * dev login
              */
-            case String_Utils::starts($path, '/dev/'):
+            case $path === '/dev' || $path === '/dev?logout':
                 Controller_Main::dev();
                 break;
 
