@@ -99,8 +99,8 @@ class Layout implements View_Renderer {
         <?php
 
         if ($isDev) {
-            ?><div>
-            <a href="/dev/?logout">Logout</a>
+            ?><div class="dev-debug">
+            <a href="/dev?logout">Logout debug mode</a>
             <?php
             $debugStorage = Storage::getInstance('debug_log');
             $debugStorage->set('_SERVER', $_SERVER);
