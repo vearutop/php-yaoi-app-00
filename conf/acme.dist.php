@@ -28,6 +28,6 @@ if (Acme::MODE_CLI == Acme::instance()->mode) {
 
 Storage::$conf['debug_log'] = 'php-var';
 /*
-Acme::db()->log(Log::getInstance(Log_Dsn::create('storage://localhost/?storage=debug_log')));
 Database::$conf['default'] = 'mysqli://user:password@localhost/db_name?charset=utf8&timezone=Europe/Moscow';
+Acme::db()->log(Log::getInstance(Log_Dsn::create('storage://localhost/?storage=debug_log')));
 */
