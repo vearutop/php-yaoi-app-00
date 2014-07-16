@@ -1,8 +1,8 @@
 <?php
 
 class Layout implements View_Renderer {
-    public $pageTitle;
-    public $pageDescription;
+    public $pageTitle = 'ACME Site';
+    public $pageDescription = '100 years in business';
     public $faviconType = 'image/x-icon';
     public $favicon = '/favicon.ico';
 

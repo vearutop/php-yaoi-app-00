@@ -23,6 +23,10 @@ class Controller_Main {
         App::view()->render();
     }
 
+    public static function dev() {
+        Http_Auth::getInstance('dev')->demand();
+        App::redirect('/');
+    }
 
     public static function someAction() {
         phpinfo();
