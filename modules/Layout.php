@@ -99,7 +99,9 @@ class Layout implements View_Renderer {
         <?php
 
         if ($isDev) {
-            ?><div><?php
+            ?><div>
+            <a href="/dev/?logout">Logout</a>
+            <?php
             $debugStorage = Storage::getInstance('debug_log');
             $debugStorage->set('_SERVER', $_SERVER);
             Debug_CollapsiblePrintR::create($debugStorage->exportArray())->render();

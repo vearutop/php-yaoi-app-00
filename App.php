@@ -35,6 +35,14 @@ class App extends Yaoi {
                 Controller_Main::someAction();
                 break;
 
+
+            /**
+             * dev login
+             */
+            case String_Utils::starts($path, '/dev/'):
+                Controller_Main::dev();
+                break;
+
             /**
              * 404
              */

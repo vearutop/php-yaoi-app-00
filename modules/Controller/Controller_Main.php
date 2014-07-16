@@ -24,7 +24,7 @@ class Controller_Main {
     }
 
     public static function dev() {
-        Http_Auth::getInstance('dev')->demand();
+        Http_Auth::getInstance('dev')->demand(isset($_GET['logout']));
         App::redirect('/');
     }
 
