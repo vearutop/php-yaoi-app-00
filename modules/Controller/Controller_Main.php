@@ -1,12 +1,6 @@
 <?php
 
-class Main_Controller {
-
-    public static function somePage() {
-        App::view()->setBody(View_Raw::create('Some content. <a href="/">Back</a> to the roots.'));
-        App::view()->render();
-    }
-
+class Controller_Main {
 
     public static function indexPage() {
         App::view()->setBody(
@@ -22,6 +16,16 @@ class Main_Controller {
 
         App::view()->setBody(View_Raw::create('Not found :('));
         App::view()->render();
+    }
+
+    public static function somePage() {
+        App::view()->setBody(View_Raw::create('Some content. <a href="/">Back</a> to the roots.'));
+        App::view()->render();
+    }
+
+
+    public static function someAction() {
+        phpinfo();
     }
 
 } 

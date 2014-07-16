@@ -21,7 +21,8 @@ class Layout implements View_Renderer {
      * @var array
      */
     public $headItems = array(
-        '<link href="/css/main.css" media="all" rel="stylesheet" type="text/css" />'
+        'main.css' => '<link href="/css/main.css" media="all" rel="stylesheet" type="text/css" />',
+        'jquery.js' => '<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>'
     );
 
     public function setBody(View_Renderer $body) {
@@ -48,6 +49,8 @@ class Layout implements View_Renderer {
 
     public function render()
     {
+        $isDev = Http_Auth::getInstance('dev')->isProvidedDemandOnWrong();
+        $body = (string)$this->body;
         ?>
         <!DOCTYPE html>
         <html>
@@ -75,8 +78,36 @@ class Layout implements View_Renderer {
 
 
         <body>
+        <div class="header">
+            <div class="container">
+                <h1><a href="/"><?=$this->pageTitle?></a></h1>
+            </div>
+        </div>
 
-        <?php $this->body->render(); ?>
+
+        <div class="main-content container">
+            <?php echo $body; ?>
+        </div>
+
+
+        <div class="container footer">
+            <div class="counters">
+
+            </div>
+        </div>
+
+        <?php
+
+        if ($isDev) {
+            ?><div><?php
+            $debugStorage = Storage::getInstance('debug_log');
+            $debugStorage->set('_SERVER', $_SERVER);
+            Debug_CollapsiblePrintR::create($debugStorage->exportArray())->render();
+            ?></div><?php
+        }
+        ?>
+
+
 
 
         </body>
