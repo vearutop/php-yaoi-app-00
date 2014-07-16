@@ -21,8 +21,8 @@ Http_Client::$conf['default'] = function () {
 
 Log::$conf['default'] = '';
 
-if (App::MODE_CLI == App::instance()->mode) {
-    App::db()->log(new Log('stdout'));
+if (Acme::MODE_CLI == Acme::instance()->mode) {
+    Acme::db()->log(new Log('stdout'));
 }
 
 

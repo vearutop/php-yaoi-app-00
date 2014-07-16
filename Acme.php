@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/php-yaoi/modules/Yaoi.php';
 
-class App extends Yaoi {
+class Acme extends Yaoi {
 
     public function route($path = null, $host = null) {
         if (null === $path) {
@@ -18,21 +18,21 @@ class App extends Yaoi {
              * index
              */
             case '/' === $path:
-                Controller_Main::indexPage();
+                Controller_Acme::indexPage();
                 break;
 
             /**
              * some page
              */
             case String_Utils::starts($path, '/some-page'):
-                Controller_Main::somePage();
+                Controller_Acme::somePage();
                 break;
 
             /**
              * some cli action (cron job)
              */
             case (self::MODE_CLI === $this->mode) && '/some-action' === $path:
-                Controller_Main::someAction();
+                Controller_Acme::someAction();
                 break;
 
 
@@ -68,9 +68,9 @@ class App extends Yaoi {
 
 }
 
-App::init(function(){
+Acme::init(function(){
     $conf = new Yaoi_Conf();
     $conf->errorLogPath = __DIR__ . '/logs/';
     return $conf;
 });
-require_once __DIR__ . '/conf/Main.php';
+require_once __DIR__ . '/conf/acme.php';
