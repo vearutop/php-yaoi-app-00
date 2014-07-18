@@ -1,6 +1,6 @@
 <?php
 
-class Layout implements View_Renderer {
+class Layout extends Base_Class implements View_Renderer {
     public $pageTitle = 'ACME Site';
     public $pageDescription = '100 years in business';
     public $faviconType = 'image/x-icon';
