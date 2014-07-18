@@ -4,7 +4,7 @@ class Controller_Acme {
 
     public static function indexPage()
     {
-        Acme::view()->setBody(
+        App::view()->setBody(
             View_Raw::create(
                 'Oh, hi! The INTERNET is waiting for a new site.
                 Some <a href="/some-page">page</a>
@@ -13,13 +13,13 @@ class Controller_Acme {
                 '
             )
         );
-        Acme::view()->render();
+        App::view()->render();
     }
 
     public static function somePage()
     {
-        Acme::view()->setBody(View_Raw::create('Some content. <a href="/">Back</a> to the roots.'));
-        Acme::view()->render();
+        App::view()->setBody(View_Raw::create('Some content. <a href="/">Back</a> to the roots.'));
+        App::view()->render();
     }
 
     public static function someAction()

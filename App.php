@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/php-yaoi/modules/Yaoi.php';
 
-class Acme extends Yaoi {
+class App extends Yaoi {
 
     public function route($path = null, $host = null) {
         if (null === $path) {
@@ -76,9 +76,9 @@ class Acme extends Yaoi {
 
 }
 
-Acme::init(function(){
+App::init(function(){
     $conf = new Yaoi_Conf();
     $conf->errorLogPath = __DIR__ . '/logs/';
     return $conf;
 });
-require_once __DIR__ . '/conf/acme.php';
+require_once __DIR__ . '/conf/app.php';
