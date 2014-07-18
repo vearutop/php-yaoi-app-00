@@ -43,6 +43,14 @@ class Acme extends Yaoi {
                 Controller_Main::dev();
                 break;
 
+
+            case String_Utils::starts($path, '/dev-con'):
+                if (DevCon_Controller::create('/dev-con')
+                    ->setAuth(Http_Auth::getInstance('dev'))
+                    ->route($path)) {
+                    break;
+                }
+
             /**
              * 404
              */
